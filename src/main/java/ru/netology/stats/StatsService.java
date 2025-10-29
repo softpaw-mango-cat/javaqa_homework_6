@@ -3,21 +3,21 @@ package ru.netology.stats;
 public class StatsService {
 
     // сумма всех продаж
-    public int salesSum(int[] sales) {
-        int sum = 0;
-        for (int sale : sales) {
+    public long salesSum(long[] sales) {
+        long sum = 0;
+        for (long sale : sales) {
             sum += sale;
         }
         return sum;
     }
 
     // средняя сумма продаж в месяц
-    public int salesAvg(int[] sales) {
+    public long salesAvg(long[] sales) {
         return salesSum(sales) / sales.length;
     }
 
     // номер последнего месяца с максимальной продажей
-    public int maxSalesMonthIndexLast(int[] sales) {
+    public int maxSalesMonthIndexLast(long[] sales) {
         int index = 0;
         for (int i = 0; i < sales.length; i++) {
             if (sales[i] >= sales[index]) {
@@ -28,7 +28,7 @@ public class StatsService {
     }
 
     // номер последнего месяца с минимальной продажей
-    public int minSalesMonthIndexLast(int[] sales) {
+    public int minSalesMonthIndexLast(long[] sales) {
         int index = 0;
         for (int i = 0; i < sales.length; i++) {
             if (sales[i] <= sales[index]) {
@@ -39,10 +39,10 @@ public class StatsService {
     }
 
     // количество месяцев, в которых продажи были ниже среднего
-    public int belowAvgSalesMonths(int[] sales) {
-        int salesAvgValue = salesAvg(sales);
+    public int belowAvgSalesMonths(long[] sales) {
+        long salesAvgValue = salesAvg(sales);
         int amount = 0;
-        for (int sale : sales) {
+        for (long sale : sales) {
             if (sale < salesAvgValue) {
                 amount += 1;
             }
@@ -51,10 +51,10 @@ public class StatsService {
     }
 
     // количество месяцев, в которых продажи были выше среднего
-    public int aboveAvgSalesMonths(int[] sales) {
-        int salesAvgValue = salesAvg(sales);
+    public int aboveAvgSalesMonths(long[] sales) {
+        long salesAvgValue = salesAvg(sales);
         int amount = 0;
-        for (int sale : sales) {
+        for (long sale : sales) {
             if (sale > salesAvgValue) {
                 amount += 1;
             }
